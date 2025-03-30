@@ -1,4 +1,4 @@
-catalogue = {}
+ catalogue = {}
 
 def add_product(name, price):
     if name in catalogue:
@@ -38,13 +38,40 @@ def display_catalogue():
     else:
         print("The catalogue is empty.")
 
-# Example usage
-add_product("Laptop", 800)
-add_product("Phone", 500)
-add_product("Headphones", 100)
-display_catalogue()
+def main():
+    while True:
+        print("\nProduct Price Catalogue")
+        print("1. Add Product")
+        print("2. Update Price")
+        print("3. Remove Product")
+        print("4. Search by Price Range")
+        print("5. Display Catalogue")
+        print("6. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == "1":
+            name = input("Enter product name: ")
+            price = float(input("Enter product price: "))
+            add_product(name, price)
+        elif choice == "2":
+            name = input("Enter product name: ")
+            price = float(input("Enter new price: "))
+            update_price(name, price)
+        elif choice == "3":
+            name = input("Enter product name: ")
+            remove_product(name)
+        elif choice == "4":
+            min_price = float(input("Enter minimum price: "))
+            max_price = float(input("Enter maximum price: "))
+            search_by_price_range(min_price, max_price)
+        elif choice == "5":
+            display_catalogue()
+        elif choice == "6":
+            print("Exiting... Thank you!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-update_price("Phone", 550)
-search_by_price_range(100, 600)
-remove_product("Laptop")
-display_catalogue()
+if __name__ == "__main__":
+    main()
