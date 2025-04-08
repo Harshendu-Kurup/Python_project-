@@ -40,16 +40,16 @@ def display_catalogue():
 
 def main():
     while True:
-        print("\nProduct Price Catalogue")
-        print("1. Add Product")
-        print("2. Update Price")
-        print("3. Remove Product")
-        print("4. Search by Price Range")
-        print("5. Display Catalogue")
+        print("\nProduct Catalogue Menu:")
+        print("1. Add product")
+        print("2. Update price")
+        print("3. Remove product")
+        print("4. Search by price range")
+        print("5. Display catalogue")
         print("6. Exit")
-        
+
         choice = input("Enter your choice: ")
-        
+
         if choice == "1":
             name = input("Enter product name: ")
             price = float(input("Enter product price: "))
@@ -68,7 +68,6 @@ def main():
         elif choice == "5":
             display_catalogue()
         elif choice == "6":
-            print("Exiting... Thank you!")
             break
         else:
             print("Invalid choice. Please try again.")
