@@ -1,0 +1,48 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample student data (Name, Math, Science, English)
+data = {
+    'Name': ['Harsha', 'Aarav', 'Meera', 'Riya', 'Kabir'],
+    'Math': [85, 90, 78, 88, 92],
+    'Science': [80, 85, 75, 90, 95],
+    'English': [78, 82, 88, 85, 80]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Calculate Average Marks for each student
+df['Average'] = df[['Math', 'Science', 'English']].mean(axis=1)
+
+# Print DataFrame
+print("Student Marks Data:")
+print(df)
+
+# Overall subject-wise statistics
+print("\nSubject-wise Average Marks:")
+print(df[['Math', 'Science', 'English']].mean())
+
+print("\nHighest Marks in Each Subject:")
+print(df[['Math', 'Science', 'English']].max())
+
+print("\nLowest Marks in Each Subject:")
+print(df[['Math', 'Science', 'English']].min())
+
+# Plotting Student-wise Average
+plt.figure(figsize=(8, 5))
+plt.bar(df['Name'], df['Average'], color='skyblue')
+plt.xlabel('Students')
+plt.ylabel('Average Marks')
+plt.title('Student-wise Average Performance')
+plt.ylim(0, 100)
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+plt.show()
+
+# Subject-wise marks distribution
+df[['Math', 'Science', 'English']].plot(kind='box')
+plt.title('Subject-wise Marks Distribution')
+plt.ylabel('Marks')
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+plt.show()
